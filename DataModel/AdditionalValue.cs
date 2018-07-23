@@ -1,0 +1,22 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.Serialization;
+using System.Threading.Tasks;
+
+namespace WebApplication1.DataModel
+{
+    [Serializable]
+    [DataContract]
+    public class AdditionalValue
+    {
+        [DataMember(EmitDefaultValue = false)]
+        public long id { get; set; }
+
+        [DataMember]
+        public string key { get; set; }
+
+        [DataMember]
+        public string value { get; set; }
+    }
+}

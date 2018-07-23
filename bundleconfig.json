@@ -7,14 +7,5 @@
     "inputFiles": [
       "wwwroot/css/site.css"
     ]
-  },
-  {
-      // Optionally specify minification options
-    "minify": {
-      "enabled": false,
-      "renameLocals": true
-    },
-    // Optionally generate .map file
-    "sourceMap": false
   }
 ]

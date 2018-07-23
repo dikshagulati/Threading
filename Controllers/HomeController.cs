@@ -66,7 +66,7 @@ namespace WebApplication1.Controllers
 
         public PartialViewResult Test()
         {
-            
+            Console.WriteLine("\n#####System Test from Home COntroller###########\n");
                 ViewData["Message"] = "Test Ajax";
                 ServiceLocatorTool serviceLocator = new ServiceLocatorTool();
                 SubscriptionFacade facade = new SubscriptionFacade();

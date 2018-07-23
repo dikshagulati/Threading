@@ -9,11 +9,7 @@
     ]
   },
   {
-    "outputFileName": "wwwroot/js/site.min.js",
-    "inputFiles": [
-      "wwwroot/js/site.js"
-    ],
-    // Optionally specify minification options
+      // Optionally specify minification options
     "minify": {
       "enabled": false,
       "renameLocals": true

@@ -51,7 +51,8 @@ namespace WebApplication1.Facade
                 // var response = await client.GetAsync($"");
 
                 // var serializer = new DataContractJsonSerializer(typeof(List<Subscription>));
-                Console.WriteLine("\n\n\n####Thread Sleeping #######\n\n\n");
+                DateTime time=DateTime.Now;
+                Console.WriteLine("\n\n\n####Thread Sleeping at : "+ time +" #######\n");
                 Thread.Sleep(10000);
                     var response = await client.GetAsync($"/bc/secure/subscription?subscriptionId=87341127");
                 if (response.StatusCode == System.Net.HttpStatusCode.OK)

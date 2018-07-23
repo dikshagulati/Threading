@@ -20,11 +20,13 @@ namespace WebApplication1.Facade
 
         public const string EMAILSTATUS_MAX_EMAIL_SIZE = "1.2GB";
         public const int EMAILSTATUS_MAX_EMAILS_IN_INBOX = 1000;
-
+        
         private readonly ISubscriptionAgent _subscriptionAgent;
 
         public SubscriptionFacade()
-        { }
+        {
+            
+        }
 
         public async Task<List<Subscription>> SubscriptionFacade1()//IServiceLocator serviceLocator
         {
@@ -49,9 +51,9 @@ namespace WebApplication1.Facade
                 // var response = await client.GetAsync($"");
 
                 // var serializer = new DataContractJsonSerializer(typeof(List<Subscription>));
-
-                Thread.Sleep(5000);
-                    var response = await client.GetAsync($"/bc/subscription?subscriptionId=87341127");
+                Console.WriteLine("\n\n\n####Thread Sleeping #######\n\n\n");
+                Thread.Sleep(10000);
+                    var response = await client.GetAsync($"/bc/secure/subscription?subscriptionId=87341127");
                 if (response.StatusCode == System.Net.HttpStatusCode.OK)
                 {
                     var stringResult = await response.Content.ReadAsStringAsync();

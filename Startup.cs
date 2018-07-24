@@ -107,17 +107,19 @@ namespace WebApplication1
                 var stopWatch = new Stopwatch();
                 var request = "";
                 var time = DateTime.Now;
+                 stopWatch.Start();
+                    Random r = new Random(); 
+                int num=r.Next();
+                 _logger.LogWarning("\nLogger:"+num+"Execution started at: "+time);
                 try
                 {
                     
-                    stopWatch.Start();
-                    Random r=new Random();
-                        int num=r.next();
+                   
                     
                     request = context.Request.Method + "-"+ context.Request.Path;
                     await _next(context);
                     stopWatch.Stop();                    
-                    _logger.LogWarning("Logger:"+num+"Execution time of the request " + request + "is " + time);
+                    _logger.LogWarning("\nLogger:Time Elapsed of "+num+  "is " + stopWatch.Elapsed);
                    //  Console.WriteLine("\n#####Execution time of the request " + request + "is " + time);
 
                 }

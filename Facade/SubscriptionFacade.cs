@@ -55,10 +55,10 @@ namespace WebApplication1.Facade
                 int num=r.Next();
                 
                 DateTime time=DateTime.Now;
-                Console.WriteLine("\n\n\n####Thread "+num+" Sleeping at : "+ time +" #######\n");
+                Console.WriteLine("\n#Thread "+num+" Sleeping at : "+ time +" ####");
                 Thread.Sleep(30000);
                   DateTime time1=DateTime.Now;
-                Console.WriteLine("\n\n\n####Thread "+num+" Woke Up at : "+ time1 +" #######\n");
+                Console.WriteLine("\n####Thread "+num+" Woke Up at : "+ time1 +" #######");
                     var response = await client.GetAsync($"/bc/secure/subscription?subscriptionId=87341127");
                 if (response.StatusCode == System.Net.HttpStatusCode.OK)
                 {

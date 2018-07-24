@@ -31,6 +31,10 @@ namespace WebApplication1.Controllers
 
         public IActionResult About()
         {
+        
+            _logger.LogInformation("Logging Info About");
+            _logger.LogError("Logging Error About");
+            _logger.LogWarning("Logging Warning About");
             ViewData["Message"] = "Your application description page.";
 
             return View();
@@ -38,6 +42,7 @@ namespace WebApplication1.Controllers
 
         public IActionResult Contact()
         {
+            _logger.LogInformation("Logging Contact");
             ViewData["Message"] = "Your contact page.";
 
             return View();

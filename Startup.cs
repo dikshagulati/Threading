@@ -46,7 +46,7 @@ namespace WebApplication1
                 //app.UseDeveloperExceptionPage();
                 //app.UseExceptionHandler("/home/Error");
                 //app.UseStatusCodePagesWithReExecute("/home/Error");
-                app.UseMiddleware<ExceptionMiddleware>();
+              
                 app.UseMvc();                
             }
             else
@@ -70,7 +70,7 @@ namespace WebApplication1
                 //    }
                 //                   );
             }
-
+              app.UseMiddleware<ExceptionMiddleware>();
             app.UseStaticFiles();
             /*
             app.UseStatusCodePages(async context =>
@@ -111,12 +111,14 @@ namespace WebApplication1
                 {
                     
                     stopWatch.Start();
-                   
+                    Random r=new Random()
+                        int num=r.next();
+                    
                     request = context.Request.Method + "-"+ context.Request.Path;
                     await _next(context);
                     stopWatch.Stop();                    
-                    _logger.LogWarning("Logger :Execution time of the request " + request + "is " + time);
-                     Console.WriteLine("\n#####Execution time of the request " + request + "is " + time);
+                    _logger.LogWarning("Logger:"+num+"Execution time of the request " + request + "is " + time);
+                   //  Console.WriteLine("\n#####Execution time of the request " + request + "is " + time);
 
                 }
                 catch (Exception ex)
@@ -129,7 +131,7 @@ namespace WebApplication1
                     var rawWeather = JsonConvert.DeserializeObject<BcError>(ex.InnerException.Message);                    
 
                     _logger.LogWarning("\n Logger :Execution time of the request " + request + "is " + time);
-                  Console.WriteLine("\n#####Execution time of the request " + request + "is " + time);
+                 // Console.WriteLine("\n#####Execution time of the request " + request + "is " + time);
                     _logger.LogError("\n Logger"+ rawWeather.error.code + " " + "-" + " " + rawWeather.error.message + "\n");
 
                     await context.Response.WriteAsync(rawWeather.error.code + " " + "-" + " " + rawWeather.error.message);

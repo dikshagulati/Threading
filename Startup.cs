@@ -114,7 +114,7 @@ namespace WebApplication1
                     await _next(context);
                     stopWatch.Stop();                    
                     _logger.LogInformation("Logger :Execution time of the request " + request + "is " + time);
-                     Console.WriteLine("\n\#####Execution time of the request " + request + "is " + time);
+                     Console.WriteLine("\n#####Execution time of the request " + request + "is " + time);
 
                 }
                 catch (Exception ex)
@@ -127,8 +127,8 @@ namespace WebApplication1
                     var rawWeather = JsonConvert.DeserializeObject<BcError>(ex.InnerException.Message);                    
 
                     _logger.LogInformation("\n Logger :Execution time of the request " + request + "is " + time);
-                  Console.WriteLine("\n\n#####Execution time of the request " + request + "is " + time);
-                    _logger.LogError("\n\n#################### Logger"+ rawWeather.error.code + " " + "-" + " " + rawWeather.error.message + "\n\n\n");
+                  Console.WriteLine("\n#####Execution time of the request " + request + "is " + time);
+                    _logger.LogError("\n Logger"+ rawWeather.error.code + " " + "-" + " " + rawWeather.error.message + "\n");
 
                     await context.Response.WriteAsync(rawWeather.error.code + " " + "-" + " " + rawWeather.error.message);
 

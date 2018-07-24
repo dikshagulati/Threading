@@ -14,11 +14,16 @@ using WebApplication1.DataModel;
 using WebApplication1.Facade;
 using WebApplication1.Models;
 using WebApplication1.ServiceLocator;
+using Microsoft.Extensions.Logging;
 
 namespace WebApplication1.Controllers
 {
     public class HomeController : Controller
     {
+        public ILogger _logger;
+        public HomeController(ILogger logger){
+            _logger=logger;
+        }
         public IActionResult Index()
         {
             return View();
@@ -67,6 +72,7 @@ namespace WebApplication1.Controllers
         public PartialViewResult Test()
         {
            
+            _logger.LogInformation("\n#### Using AppLogger Warning####\n");
                 ViewData["Message"] = "Test Ajax";
                 ServiceLocatorTool serviceLocator = new ServiceLocatorTool();
                 SubscriptionFacade facade = new SubscriptionFacade();

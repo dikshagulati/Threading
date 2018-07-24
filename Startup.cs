@@ -111,7 +111,7 @@ namespace WebApplication1
                 {
                     
                     stopWatch.Start();
-                    Random r=new Random()
+                    Random r=new Random();
                         int num=r.next();
                     
                     request = context.Request.Method + "-"+ context.Request.Path;

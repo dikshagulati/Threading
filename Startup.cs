@@ -32,13 +32,14 @@ namespace WebApplication1
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            Console.WriteLine("\n Inside Configure Services");
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             loggerFactory.AddConsole(); 
-
+            Console.WriteLine("\n Inside StartUp Configure");
             if (env.IsDevelopment())
             {
                 app.UseBrowserLink();
@@ -96,6 +97,7 @@ namespace WebApplication1
 
             public ExceptionMiddleware(RequestDelegate next, ILoggerFactory loggerFactory)
             {
+                Console.WriteLine("\n Inside Exception Middleware");
                 _next = next;
                 _logger = loggerFactory.CreateLogger<ExceptionMiddleware>();
             }
